@@ -163,38 +163,3 @@ Resources:
         Ref: mySubnet1,
         Ref: mySubnet2
         ]
-  EKSAddons1:
-    Type: AWS::EKS::Addon
-    Properties:
-      AddonName: vpc-cni
-      ClusterName: !Ref EKSCluster 
-      PreserveOnDelete: true
-      ResolveConflicts: OVERWRITE
-  EKSAddons2:
-    Type: AWS::EKS::Addon
-    Properties:
-      AddonName: coredns
-      ClusterName: !Ref EKSCluster 
-      PreserveOnDelete: true
-      ResolveConflicts: OVERWRITE
-  EKSAddons3:
-    Type: AWS::EKS::Addon
-    Properties:
-      AddonName: kube-proxy
-      ClusterName: !Ref EKSCluster 
-      PreserveOnDelete: true
-      ResolveConflicts: OVERWRITE
-  EKSAddons1:
-    Type: AWS::EKS::Addon
-    Properties:
-      AddonName: aws-ebs-csi-driver
-      ClusterName: !Ref EKSCluster 
-      PreserveOnDelete: true
-      ResolveConflicts: OVERWRITE
-  EKSAddons4:
-    Type: AWS::EKS::Addon
-    Properties:
-      AddonName: aws-efs-csi-driver
-      ClusterName: !Ref EKSCluster 
-      PreserveOnDelete: true
-      ResolveConflicts: OVERWRITE
