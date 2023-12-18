@@ -1,7 +1,7 @@
 # ELK stack
 This is a demonstration of using ELK stack
 
-## Start
+## 1. Create
 ### 1. Initialize cloudformation
 Replace `$stackname` and `$templatefile` to your custom
 ```
@@ -30,6 +30,20 @@ eksctl create iamserviceaccount --name ebs-csi-controller-sa --namespace kube-sy
 Replace `$cluster` and `YOUR_AWS_ACCOUNT` to your custom
 ```
 aws eks create-addon --cluster-name $cluster --addon-name aws-ebs-csi-driver --service-account-role-arn arn:aws:iam::YOUR_AWS_ACCOUNT_ID:role/AmazonEKS_EBS_CSI_DriverRole
+```
+## 2. Destroy
+### 1. Delete role
+```
+aws iam delete-role --role-name AmazonEKS_EBS_CSI_DriverRole
+```
+### 2. Delete LoadBalancer
+### 3. Delete cloudformation stack
+Replace `$stackname` to your custom
+```
+aws cloudformation delete-stack --stack-name $stackname
+```
+```
+aws cloudformation delete-stack --stack-name eksctl-EKSCluster-addon-iamserviceaccount-kube-system-ebs-csi-controller-sa
 ```
 
 
